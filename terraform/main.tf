@@ -3,7 +3,7 @@ terraform{
         # Replace this with your bucket name!
         bucket         = "terraform-up-and-running-state"
         key            = "global/s3/terraform.tfstate"
-        region         = "eu-west-2"
+        region         = "us-east-2"
 
         # Replace this with your DynamoDB table name!
         #dynamodb_table = "terraform-up-and-running-locks"
