@@ -3,7 +3,7 @@ resource "aws_vpc" "my_first_vpc" {
   instance_tenancy = "default"
 
   tags = {
-    Name = "demo-vpc-auto"
+    Name = "demo-vpc-autobuild"
     
   }
 }
