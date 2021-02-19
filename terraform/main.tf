@@ -1,4 +1,3 @@
-/*
 terraform{
     backend "s3"{
         # Replace this with your bucket name!
@@ -12,7 +11,7 @@ terraform{
   
     }
 }
-*/
+
 provider "aws" {
     region="eu-west-2"
 }
