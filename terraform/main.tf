@@ -19,7 +19,7 @@ provider "aws" {
 
 resource "aws_s3_bucket" "terraform_state"{
     bucket= "terraform-up-and-running-state"
-    region="eu-west-2"
+    #region="eu-west-2"
     # Prevent accidental deletion of this bucket
     lifecycle{
         prevent_destroy=true
