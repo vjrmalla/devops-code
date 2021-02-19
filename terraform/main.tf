@@ -34,6 +34,7 @@ resource "aws_s3_bucket" "terraform_state"{
         }
         }
   }
+}
 /*
   # If we need to lock terraform state file we have to use DynamoDB
   resource "aws_dynamodb_table" "terraform_locks" {
@@ -47,4 +48,3 @@ resource "aws_s3_bucket" "terraform_state"{
     }
     }
 */
-}
