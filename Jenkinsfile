@@ -15,7 +15,7 @@ pipeline{
                     terraform init -force-copy'''
                 }
             }
-            stage('Terraform apply'){
+            stage('Terraform init'){
                 steps{
                     sh '''cd terraform
                     terraform apply --auto-approve'''
