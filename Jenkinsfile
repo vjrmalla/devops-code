@@ -31,9 +31,5 @@ pipeline{
             slackSend "Previous build was unsuccessful bu this build is success - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
     
        }
-        changed{
-            slackSend "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
-
-        }
     }
 }
