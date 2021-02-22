@@ -22,5 +22,14 @@ pipeline{
                 }
             }
         }
-    
+    post{
+        failure{
+            slackSend "Build failed - Job: ${JOB_NAME} - Build No.: ${BUILD_NUMBER} - Build URL: (<${BUILD_URL}|Open>)"
+
+        }
+        changed{
+            slackSend "Build status changed - Job: ${JOB_NAME} - Build No.: ${BUILD_NUMBER} - Build URL: (<${BUILD_URL}|Open>)"
+
+        }
+    }
 }
