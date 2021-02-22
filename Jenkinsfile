@@ -24,12 +24,13 @@ pipeline{
         }
     post{
         failure{
-            slackSend "Build Failed - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
-
+            slackSend (color: '#FFFF00', message: "Build Failed: '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
         }
         fixed {
-            slackSend "Previous build was unsuccessful bu this build is success - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
-    
+            slackSend (color: '#FFFF00', message: "Build Fixed: '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+       }
+       success {
+           slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
        }
     }
 }
