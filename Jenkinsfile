@@ -15,7 +15,7 @@ pipeline{
                     terraform init -force-copy'''
                 }
             }
-            stage('Terraform init'){
+            stage('Terraform apply'){
                 steps{
                     sh '''cd terraform
                     terraform apply --auto-approve'''
@@ -24,11 +24,15 @@ pipeline{
         }
     post{
         failure{
-            slackSend "Build failed - Job: ${JOB_NAME} - Build No.: ${BUILD_NUMBER} - Build URL: (<${BUILD_URL}|Open>)"
+            slackSend "Build Failed - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
 
         }
+        fixed {
+            slackSend "Previous build was unsuccessful bu this build is success - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+    
+       }
         changed{
-            slackSend "Build status changed - Job: ${JOB_NAME} - Build No.: ${BUILD_NUMBER} - Build URL: (<${BUILD_URL}|Open>)"
+            slackSend "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
 
         }
     }
